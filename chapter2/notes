@@ -1,0 +1,21 @@
+For future reference, below sententces were extracted from Chapter 2  
+
+
+While scope is about which variable an identifier is referring to, context (also known as the receiver) is about the this keyword—and its handy CoffeeScript shorthand, @.)
+The main purpose of context is to give an object’s methods (functions at- tached as properties) a way of referring to the object they’re being called on
+We can invoke a function in a particular context without attaching the function to that object by using the call or apply methods, which all functions have.
+apply takes a context and an array of arguments to pass to the function
+call works the same way, except that it takes individual arguments rather than a single array.
+:)  You can use call and apply to “borrow” one object’s methods and use them on another
+Finally, one last way of giving a function a context is with new, which creates a new object using the function as a constructor
+When the new keyword is put in front of a function call, its context is the new object.
+We call => the “bound function operator” or, less formally, the “fat arrow.”
+=> may be CoffeeScript’s most powerful shorthand.
+
+setName = (name) -> @name = name
+setName = (@name) -> # no code required!
+
+CoffeeScript uses the existence operator behind the scenes. This means that explicitly passing null or undefined is the same as omitting the argument altogether.
+Every argument passed to a function (regardless of the number in the function’s declaration) is available from the arguments object.
+Nonsplatted arguments always get filled in first.
+In a function call, splats mean precisely the inverse of what they mean in argument lists and pattern-matching assignments: they expand an array into a series of arguments, rather than collapsing a series of arguments into an array.
