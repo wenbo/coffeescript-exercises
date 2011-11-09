@@ -1,0 +1,20 @@
+For future reference, below sententces were extracted from Chapter 3  
+
+In JavaScript, every object is a hash. And just about everything is an object; the only exceptions are the primitives (booleans, numbers, and strings), and a few special constants like undefined and NaN.
+
+In JSON, objects are denoted by {}, arrays by []. Note that JSON is a subset of JavaScript and can usually be pasted directly into CoffeeScript code. 
+
+Note that while curly braces have many uses in JavaScript, their only purpose in CoffeeScript is to declare objects.
+
+Quotes are optional around the keys as long as they obey standard variable naming rules
+
+One handy trick that CoffeeScript offers is the ability to omit the value from a key-value pair when the value is a variable named by the key. Note that this shorthand only works with explicit curly braces.
+
+Remember that all object keys are converted to strings, so arr[1], arr['1'], and even arr[{toString: -> '1'}] are synonymous. (When an object has a toString method, its return value is used when the object is converted to a string.)
+
+The most important thing to remember is that CoffeeScript’s of is equivalent to JavaScript’s in.Think of it this way: values live in an array, while you have keys of an array.  
+
+List comprehensions are the consequence of a core part of CoffeeScript’s philosophy: everything in CoffeeScript is an expression. And every expression has a value. 
+
+{x: myX, y: myY} = myRect
+Again, the “object” on the left side of the assignment isn’t really an object, it’s a pattern, providing keys and variable names to match these keys. So this is equivalent to the following: myX = myRect.x; myY = myRect.y
