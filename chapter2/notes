@@ -1,6 +1,5 @@
 For future reference, below sententces were extracted from Chapter 2  
 
-
 While scope is about which variable an identifier is referring to, context (also known as the receiver) is about the this keyword—and its handy CoffeeScript shorthand, @.)
 The main purpose of context is to give an object’s methods (functions at- tached as properties) a way of referring to the object they’re being called on
 We can invoke a function in a particular context without attaching the function to that object by using the call or apply methods, which all functions have.
@@ -19,3 +18,5 @@ CoffeeScript uses the existence operator behind the scenes. This means that expl
 Every argument passed to a function (regardless of the number in the function’s declaration) is available from the arguments object.
 Nonsplatted arguments always get filled in first.
 In a function call, splats mean precisely the inverse of what they mean in argument lists and pattern-matching assignments: they expand an array into a series of arguments, rather than collapsing a series of arguments into an array.
+
+0 <= x < GRID_SIZE is shorthand for (0 <= x) and (x < GRID_SIZE)

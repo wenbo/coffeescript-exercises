@@ -1,0 +1,16 @@
+For future reference, below sententces were extracted from Chapter 4  
+
+Boy::sing is shorthand for Boy.prototype.sing. The :: symbol is to prototype as @ is to this.
+When an object inherits properties from a prototype, changes to the prototype will change the inherited properties as well
+Properties attached directly to objects take precedence over prototype properties.
+To check whether a property is attached to an object directly or inherited from a prototype, use the hasOwnProperty function
+constructor properties (like Gift.count)             prototype properties (like Gift::announce)
+The only class property that isn’t part of the prototype is the constructor function, if you define one.
+where classes really shine is when we want to use inheritance.
+
+every prototype inherits from {}’s prototype, but there may be other prototypes in between
+name is a special property
+One great use of classes is polymorphism, which is a fancy object-oriented programming term for “a thing can be a lot of different things, but not just any thing.” 
+slice(0) is a well-known trick for copying JavaScript arrays
+
+(window ? global).property = 'global context'
