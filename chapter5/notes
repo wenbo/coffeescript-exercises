@@ -1,0 +1,24 @@
+For future reference, below sententces were extracted from Chapter 5.  
+
+Instead, jQuery’s power is safely tucked away in one object, jQuery, which is normally aliased as $. 
+
+it’s a common stylistic convention to prefix all jQuery object names with $. Once you’ve got a jQuery object, you have a massive arsenal of functions at your disposal. 
+
+Every jQuery object you create is just an ordered list of DOM elements wrapped up with a neat feature-rich bow. To get those elements out, the official docs suggest that you use the get:
+pikachu = $('#pikachu').get(0)
+You can even use array functions like length and slice (though not push or concat—instead, try add).
+
+$('#header img') $('#header').find('img')
+
+immediate children $('#header > img') $('#header').children('img')
+$('li:has(a)')
+$(':checked')
+
+There are two important points to remember about selected elements in jQuery. First, the selection is performed only once—selectors are not “live” (except in the appropriately named live method and the functionally similar delegate, which run the given selector as needed every time an event is fired).  Second, there’s no distinction in jQuery between a single element and a collection of elements; a single element is just a collection of size 1. So for instance, if the first div on your page has the id header, then $('#header'), $('div:first'), and $('div').first() are all equivalent.  
+
+jQuerify the context element:   $('h1').click -> $(this).html $(this).html() + '!'
+$('h1')
+.click(-> $(this).html $(this).html() + '!')
+.click(-> alert $(this).text())
+
+Calling $elem.unbind() will unbind everything attached to $elem, while $elem.unbind 'click' will just unbind the click events. 

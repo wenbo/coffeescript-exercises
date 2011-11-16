@@ -16,3 +16,9 @@ Genie1::grantWish = ->
 genie = new Genie1
 genie.grantWish() 
 genie.grantWish() 
+
+3.
+  $('#drJekyll').click ->
+    alert 'Now I shall transform!'
+    $('#drJekyll').attr 'id', 'mrHyde'
+    $('#drJekyll').unbind 'click'
