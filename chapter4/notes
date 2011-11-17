@@ -1,6 +1,27 @@
 For future reference, below sententces were extracted from Chapter 4  
 
-Boy::sing is shorthand for Boy.prototype.sing. The :: symbol is to prototype as @ is to this.
+KEYWORDS:
+  constructor properties, prototype properties   
+
+A common JavaScript convention is to make each file a module by wrapping it in a function, which is immedi- ately executed. Server-side environments like Node.js, which implement the CommonJS specification, always treat each file as a separate module.
+
+How do you share data between modules?
+The answer is you attach them to an existing global variable. One option is to use the root object, which is the only object whose properties can be ref- erenced without qualification. In a browser environment, the root object is window. In Node, it’s global.
+
+In JavaScript, attaching variables to the root object is easy—in fact, it’s commonly done by mistake when the var keyword is omitted. In CoffeeScript, on the other hand, you need to be explicit:
+   root = global ? window # file1.coffee
+   root.emergencyNumber = 911 # file2.coffee
+   console.log emergencyNumber # '911'
+   emergencyNumber is root.emergencyNumber # true
+
+A prototype is an object whose properties are shared by all objects that have that prototype. An object’s prototype can usually be accessed using the aptly-named prototype property, though there are exceptions.  
+However, you can’t just go and write A.prototype = B. Instead, you need to use the new keyword, which takes a function called a constructor and creates an object that “inherits” the constructor’s prototype. Here’s a quick example:
+Boy = -> # by convention, constructor names are capitalized
+Boy::sing = -> console.log "It ain't easy being a boy named Sue"
+sue = new Boy()
+sue.sing()
+Here, Boy::sing is shorthand for Boy.prototype.sing. The :: symbol is to prototype as @ is to this.
+
 When an object inherits properties from a prototype, changes to the prototype will change the inherited properties as well
 Properties attached directly to objects take precedence over prototype properties.
 To check whether a property is attached to an object directly or inherited from a prototype, use the hasOwnProperty function

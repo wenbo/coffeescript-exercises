@@ -1,0 +1,21 @@
+For future reference, below sententces were extracted from Chapter 6.  
+
+Node.js is a JavaScript interpreter (powered by V8, the engine used by Google’s Chrome browser) that interfaces with the underlying operating system. That way, JavaScript run by Node.js can read and write files, spawn processes, and—most enticingly—send and receive HTTP requests.
+
+Noders generally prefer to keep their code nice and modular, with each file having its own namespace. How, then, do you share objects from one file with another?  The answer is a special object called exports, which is part of the CommonJS module standard. A file’s exports object is returned when another file calls require on it.
+
+When a library’s name isn’t prefixed with . or /, Node looks for a matching file in one of its library paths, which you can see by looking at require.paths.By convention, a library’s name for require is the same as its name for npm.  Recall, for instance, that we used npm install -g coffee-script to install CoffeeScript.  That gave us the coffee binary, but also the coffee-script library. We’ll be using npm to install some more libraries for our project at the end of this chapter.
+
+Because JavaScript is event-oriented rather than thread-oriented, events only run when all other execution has stopped.
+
+Nearly every function in the Node.js API uses a callback: you make your request, Node.js quickly passes it along, and your application continues as if nothing happened. When your request is completed (or goes awry), the function you passed to Node.js gets called.
+
+fs = require 'fs'
+fs.readdir '.', (err, files) ->
+console.log files
+console.log 'This will happen first.'
+Here’s what happens:
+1. We ask Node.js to read the current directory with fs.readdir, passing a callback.
+2. Node.js passes the request along to the operating system, then immedi- ately returns.
+3. We print 'This will happen first.' to the console.
+4. Once our code has run, Node.js checks to see if the operating system has answered our request yet. It has, so it runs our callback, and a list of files in the current directory is printed to the console.

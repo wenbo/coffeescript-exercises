@@ -15,6 +15,7 @@ class Tribble
 tribble1 = new Tribble
 tribble2 = new Tribble
 Tribble.makeTrouble()
+#Notice that Tribble.count is referred to as @count in the Tribble class context but not within Tribble methods. This is a little baffling at first, but remember that there are three objects we’re dealing with here: the Tribble object itself (which is actually the constructor function), Tribble.prototype, and the Tribble instance.  By default, Tribble properties (other than constructor) are attached to the proto- type. When we use the @ prefix, we’re insisting that we want to attach the property to the class object itself.
 
 tribble1.die()
 tribble2.breed().breed().breed()
