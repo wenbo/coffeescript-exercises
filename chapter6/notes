@@ -19,3 +19,16 @@ Here’s what happens:
 2. Node.js passes the request along to the operating system, then immedi- ately returns.
 3. We print 'This will happen first.' to the console.
 4. Once our code has run, Node.js checks to see if the operating system has answered our request yet. It has, so it runs our callback, and a list of files in the current directory is printed to the console.
+
+An example HTTP server, accepting several middleware.
+#START:createServer
+connect = require 'connect'
+console.log "dirname: #{__dirname}"
+
+#START:configure
+app = connect.createServer(
+  connect.compiler(src: __dirname + '/client', enable: ['coffeescript']),
+  connect.static(__dirname + '/client'),
+  connect.errorHandler dumpExceptions: true, showStack: true
+)
+#END:configure
