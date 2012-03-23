@@ -35,3 +35,7 @@ One great use of classes is polymorphism, which is a fancy object-oriented progr
 slice(0) is a well-known trick for copying JavaScript arrays
 
 (window ? global).property = 'global context'
+
+JavaScript obliterates the distinction: there are no classes. There are
+only prototypes, which make it easy for objects to share methods. For that
+reason, JavaScript is sometimes described as a prototype-based language.
