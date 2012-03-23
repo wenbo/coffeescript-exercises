@@ -9,3 +9,11 @@ The answer is you attach them to an existing global variable. One option is
 to use the root object, which is the only object whose properties can be ref-
 erenced without qualification. In a browser environment, the root object is
 window. In Node, it’s global.
+
+A prototype is an object whose properties are shared by all objects that have
+that prototype. An object’s prototype can usually be accessed using the
+aptly-named prototype property, though there are exceptions.2
+However, you can’t just go and write A.prototype = B. Instead, you need to use
+the new keyword, which takes a function called a constructor and creates
+an object that “inherits” the constructor’s prototype. 
+
