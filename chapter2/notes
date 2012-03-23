@@ -28,3 +28,7 @@ outside
 of the function, while @name (shorthand for this.name) is a property of the
 context.
 
+Quite simply, when @ precedes the name of an argument to a function, that
+function automatically makes the assignment from the argument to the
+property with that name on the context object, this.
+
