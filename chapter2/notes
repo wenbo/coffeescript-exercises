@@ -20,3 +20,11 @@ Nonsplatted arguments always get filled in first.
 In a function call, splats mean precisely the inverse of what they mean in argument lists and pattern-matching assignments: they expand an array into a series of arguments, rather than collapsing a series of arguments into an array.
 
 0 <= x < GRID_SIZE is shorthand for (0 <= x) and (x < GRID_SIZE)
+
+setName = (name) -> @name = name
+Here, name and @name are totally different variables: name (which we could
+call anything, really) is a local variable, one that will never be visible
+outside
+of the function, while @name (shorthand for this.name) is a property of the
+context.
+
